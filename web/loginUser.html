@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<!-- HTML document start -->
+
+<head>
+    <title>Actor Employement Management System</title>
+    <script type="text/javascript">
+
+        var titleText = document.title;
+        
+        function titleMarquee() {
+        
+         titleText = titleText.substring(1, titleText.length) + titleText.substring(0, 1);
+         document.title = titleText;
+         setTimeout("titleMarquee()", 450);
+         }
+        
+    </script>
+
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        header {
+            height: auto;
+            padding: 20px;
+            background-color: lightblue;
+            color: white;
+        }
+
+        a {
+            color: black;
+        }
+
+        section {
+            background-color: white;
+            width: 80%;
+            margin: auto;
+            padding: 140px 20px;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            height: auto;
+            clear: both;
+            padding: 20px;
+        }
+
+        ul li {
+            display: inline;
+            padding: 10px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .center {
+            text-align: center
+        }
+
+        .two-column {
+            float: left;
+            width: 50%;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        #login_form {
+            width: 30%;
+            margin: auto;
+        }
+
+        fieldset {
+            border-radius: 10px;
+            padding: 30px;
+        }
+    </style>
+    <script>
+        function cancelFunction() {
+            var respon = confirm("Are you sure want to cancel login?");
+            if (respon == true) {
+                window.location.href = "home.html";
+            }
+        }
+        function loginFunction() {
+            var respon = confirm("Are you sure username and password entered are correct?");
+            if (respon == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        function leaveFunction() {
+            var cancel = confirm("Are you sure want to leave login page?");
+            if (cancel == true) {
+                window.location.href = "signup.html";
+            }
+        
+        }			
+    </script>
+</head>
+
+<body background="background.jpg" onload="titleMarquee()">
+    <header>        
+        <div class="row">
+            <div class="two-column" style="text-align:left;">
+                <ul>
+                    <li><b>Log In</b></li>
+                </ul>
+            </div>            
+            <div class="two-column" style="text-align:right;">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="center"><h1>Actor Employement Management System</h1></div>
+    </header>
+    <section>
+        <form id="login_form" action="LoginController" method="get" onsubmit=" return loginFunction()">
+            <fieldset>
+                <legend><b>Log In</b></legend>
+                <div align="center">
+                    <input type="text" name="username" placeholder="Username" class="form-control" required="required" style="padding: 10px; width: 80%;"
+                        required><br><br>
+                    <input type="password" name="password" placeholder="Password" class="form-control" required="required" style="padding: 10px; width: 80%;"
+                        required><br><br>
+
+                    <input type="submit" value="Log In" name="submit"
+                        style="background-color: lightblue; border: 1px solid; padding: 10px 20px;">
+                    <input onclick="cancelFunction()" type="reset" value="Cancel" name="cancel"
+                        style="border: 1px solid; padding: 10px; padding: 10px 20px;"><br><br>
+
+                    <!-- <p>First time login?</p><a href="" style="color: lightblue;">Register Now</a> -->
+                </div>                
+            </fieldset> 
+        </form>
